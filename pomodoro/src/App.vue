@@ -5,7 +5,7 @@
       <span>{{ state }}</span>
       <controls-component  :state="state" @update="onStateUpdate"></controls-component>
     </h2>
-    <state-title-component :state="state"></state-title-component>
+    <state-title-component :title="title"></state-title-component>
     <countdown-component></countdown-component>
     <kittens-component></kittens-component>
   </div>
@@ -27,6 +27,11 @@ export default {
     CountdownComponent,
     KittensComponent,
     StateTitleComponent
+  },
+  computed: {
+    title: function () {
+      return this.state
+    }
   },
   methods: {
     onStateUpdate (newState) {
